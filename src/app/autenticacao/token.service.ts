@@ -13,6 +13,7 @@ export class TokenService {
   salvaToken(token: string) {
     localStorage.setItem(KEY, token);
   }
+
   excluiToken() {
     localStorage.removeItem(KEY);
   }
@@ -20,4 +21,5 @@ export class TokenService {
   possuiToken() {
     return !!this.retornaToken();
   }
+  
 }

@@ -1,6 +1,6 @@
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/autenticacao/usuario/usuario.service';
-import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-cabecalho',
@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./cabecalho.component.css'],
 })
 export class CabecalhoComponent {
-  user$ = this.usuarioService.returnUsuario();
+  user$ = this.usuarioService.retornaUsuario();
 
   constructor(private usuarioService: UsuarioService, private router: Router) {}
 

@@ -1,8 +1,8 @@
-import { environment } from './../../environments/environment';
-import { TokenService } from './../autenticacao/token.service';
-import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { TokenService } from '../autenticacao/token.service';
 import { Animais } from './animais';
 
 const API = environment.apiURL;
