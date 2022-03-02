@@ -1,4 +1,3 @@
-import { TokenService } from './token.service';
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,
@@ -8,6 +7,7 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { TokenService } from './token.service';
 
 @Injectable()
 export class AutenticacaoInterceptor implements HttpInterceptor {
@@ -19,7 +19,7 @@ export class AutenticacaoInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     if (this.tokenService.possuiToken()) {
       const token = this.tokenService.retornaToken();
-      const headers = new HttpHeaders().append('x-access-toke', token);
+      const headers = new HttpHeaders().append('x-access-token', token);
       request = request.clone({ headers });
     }
 

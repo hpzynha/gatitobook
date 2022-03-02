@@ -16,12 +16,10 @@ export class AnimaisService {
   constructor(private http: HttpClient, private tokenService: TokenService) {}
 
   listaDoUsuario(nomeDoUsuario: string): Observable<Animais> {
-    return this.http.get<Animais>(`${API}/${nomeDoUsuario}/photos`, {});
+    return this.http.get<Animais>(`${API}/${nomeDoUsuario}/photos`);
   }
 
-  buscaPorId(id: number): Observable<Animal> {
-    const token = this.tokenService.retornaToken();
-    const headers = new HttpHeaders().append('x-access-token', token);
+  buscaPorID(id: number): Observable<Animal> {
     return this.http.get<Animal>(`${API}/photos/${id}`);
   }
 
@@ -31,7 +29,7 @@ export class AnimaisService {
 
   curtir(id: number): Observable<boolean> {
     return this.http
-      .post(`${API}/photos/${id}/likes`, {}, { observe: 'response' })
+      .post(`${API}/photos/${id}/like`, {}, { observe: 'response' })
       .pipe(
         mapTo(true),
         catchError((error) => {
